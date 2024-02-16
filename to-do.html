@@ -1,0 +1,76 @@
+<html>
+<head>
+</head>
+<style>
+body{
+background-image:url("https://www.stylist.co.uk/images/app/uploads/2021/06/01164914/to-do-list-1680x880.jpg?w=1680&h=880&fit=max&auto=format%2Ccompress");
+}
+
+.div{
+    max-width: 300px;
+    margin: 80px auto;
+    background-color: pink;
+    border-radius: 5px;
+    box-shadow: 0 0 10px;
+    padding: 20px;
+}
+.div1{display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;}
+.list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    margin: 10px auto;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: pink;
+width: 300px;
+  }
+list1{
+ list-style-type: none;
+    padding: 0;}
+
+</style>
+<body>
+<center>
+
+<div class="div">
+<div  class="div1">
+<input type="text" placeholder="Enter your task" id="input"><br><br>
+<button onclick="add()" >Add</button>
+</div>
+</center>
+
+<div>
+<ol id="list" class="list1"></ol>
+</div>
+</div>
+<script>
+function add()
+{
+const input = document.getElementById("input");
+const provide = document.getElementById("list");
+
+if(input.value.trim()==='')
+{
+alert("enter the task in the input field");
+}
+else{
+const list=document.createElement("li");
+list.className="list";
+list.innerHTML=`<p>${input.value}</p> <button onclick="deletetask(this.parentNode)">Delete</button>` ;
+provide.appendChild(list);
+input.value="";
+}
+}
+function deletetask(list1)
+{
+const provide= document.getElementById("list");
+provide.removeChild(list1);
+}
+</script>
+</body>
+</html>
